@@ -7,6 +7,7 @@ import Main from './Body/Main_sm';
 function App() {
   const [header, setHeader] = useState()
   
+  // Fonction qui spécififie le format du header
   const resize = () => {
     if (window.outerWidth < 990) {
       setHeader('small')
@@ -15,6 +16,7 @@ function App() {
     }
   }
   
+  // Listener pour automatiquement changer le format du header
   window.addEventListener('resize', () => {
     resize()
   })

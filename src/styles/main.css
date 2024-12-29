@@ -112,3 +112,12 @@
     color: white;
 }
 
+@media only screen and (min-width: 1170px) {
+    .main {
+        margin: 0 200px;
+    }
+    .features {
+        border-radius: 50px;
+        padding: 50px;
+    }
+}

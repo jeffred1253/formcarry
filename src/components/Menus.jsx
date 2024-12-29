@@ -2,15 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import './../styles/menus.css';
 
 const SelectedMenu = ({num, menuRefs, selectedBarRef}) => {
+    // Couleur de l'icon s"lectionnée
     const [iconColor, setIconColor] = useState('#B3B8D0')
+    // Titre de l'icon selectionnée
     const [iconTitle, setIconTitle] = useState()
+    // Grand en h2 titre juste après l'icon sélectionnée
     const [title, setTitle] = useState()
+    // Text de description de l'icon
     const [text, setText] = useState()
+    // Dessin de l'icon sélectionnée
     const [icon, setIcon] = useState('M7.83328 19.4844C6.69499 19.397 5.61341 18.9522 4.74299 18.2134C3.87257 17.4747 3.25781 16.4798 2.98649 15.3709C2.71517 14.262 2.80117 13.0957 3.2322 12.0385C3.66323 10.9814 4.41726 10.0875 5.38661 9.48438C5.59287 7.87612 6.37811 6.39813 7.59538 5.32701C8.81264 4.25589 10.3785 3.66504 11.9999 3.66504C13.6214 3.66504 15.1872 4.25589 16.4045 5.32701C17.6218 6.39813 18.407 7.87612 18.6133 9.48438C19.5826 10.0875 20.3367 10.9814 20.7677 12.0385C21.1987 13.0957 21.2847 14.262 21.0134 15.3709C20.7421 16.4798 20.1273 17.4747 19.2569 18.2134C18.3865 18.9522 17.3049 19.397 16.1666 19.4844V19.5002H7.83328V19.4844ZM12.8333 12.8335H15.3333L11.9999 8.66688L8.66661 12.8335H11.1666V16.1669H12.8333V12.8335Z')
+    // Reference de l'icon en grand après la barre de sélection
     const iconRef = useRef(null)
     useEffect(() => {
         setIconTitle(menuRefs.current[num].lastElementChild.innerHTML)
-        let text
         switch (num) {
             case 0:
                 setIconColor('#21DDFF')
@@ -41,22 +46,30 @@ const SelectedMenu = ({num, menuRefs, selectedBarRef}) => {
                 setIconColor('#B3B8D0')
                 break;
         }
+
+        // Variable de la distance de la barre de selection par rapport à la gauche
+        let leftBar
+        const leftSelectedBar = () => {
+            if (window.outerWidth < 1170) {
+                leftBar = 20
+              } else {
+                leftBar = 250
+              }
+        }
+        window.addEventListener('resize', leftSelectedBar())
+
         menuRefs.current[num].classList.add('selected')
         menuRefs.current[num].firstElementChild.querySelector('path').setAttribute('fill', iconColor)
-        selectedBarRef.current.style.left = (menuRefs.current[num].getBoundingClientRect().left -20) + 'px'
+        selectedBarRef.current.style.left = (menuRefs.current[num].getBoundingClientRect().left - leftBar) + 'px'
         selectedBarRef.current.style.width = menuRefs.current[num].offsetWidth + 'px'
-        iconChange()
-    }, [num, menuRefs, iconColor, selectedBarRef])
-
-    const iconChange = () => {
-        //iconRef.current.classList.remove('afficheIcon')
         iconRef.current.classList.add('afficheIcon')
-    }
+        return window.removeEventListener('resize', leftSelectedBar())
+    }, [num, menuRefs, iconColor, selectedBarRef])
 
     return (
         <div>
             <div className='selectedIcon' ref={iconRef}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path onChange={iconChange} d={icon} fill={iconColor}></path></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d={icon} fill={iconColor}></path></svg>
             </div>
             <div style={{color: iconColor, textTransform: 'uppercase', marginTop: '20px'}}>{iconTitle}</div>
             <h2 className='subtitle' dangerouslySetInnerHTML={{__html: title}} style={{color: 'white'}}></h2>
@@ -69,9 +82,13 @@ const SelectedMenu = ({num, menuRefs, selectedBarRef}) => {
     )
 }
 
+// Composant de la bar de menus défilante au niveau de "Feautures that you need"
 const Menus = () => {
+    // Numéro du menu sélectionné
     const [selectedValue, setSelectedValue] = useState(0)
+    // Référence du menu sélectionné
     const menuRefs = useRef([])
+    // Référence de la barre de sélection de menu
     const selectedBarRef = useRef(null)
     useEffect(() => {
         for (let i = 0; i < menuRefs.current.length; i++) {
