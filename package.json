@@ -2,7 +2,7 @@
   "name": "commerce-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jeffred1253.github.io/commerceTest",
+  "homepage": "https://jeffred1253.github.io/formcarry",
   "dependencies": {
     "cra-template": "1.2.0",
     "react": "^19.0.0",
