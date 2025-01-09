@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/formcarry/static/css/main.dbd06370.css",
-    "main.js": "/formcarry/static/js/main.36f54e5d.js",
+    "main.css": "/formcarry/static/css/main.fa2a6aed.css",
+    "main.js": "/formcarry/static/js/main.dc274562.js",
     "static/js/488.3c842770.chunk.js": "/formcarry/static/js/488.3c842770.chunk.js",
     "static/media/cannes-logo.673ba9cc.svg": "/formcarry/static/media/cannes-logo.673ba9cc.8266f7ee4efc3acec15590d5c94874b1.svg",
     "static/media/formcarry_logo.svg": "/formcarry/static/media/formcarry_logo.8b8f15228548e2fd1f3267c5d0fe3ddd.svg",
@@ -10,12 +10,12 @@
     "static/media/vixen-logo.f7a6c087.svg": "/formcarry/static/media/vixen-logo.f7a6c087.c11565eaf2950186404014bbe0cf9998.svg",
     "static/media/nba-logo.9219f4e8.svg": "/formcarry/static/media/nba-logo.9219f4e8.dbdf93ae29efe98c9854623706a9ad70.svg",
     "index.html": "/formcarry/index.html",
-    "main.dbd06370.css.map": "/formcarry/static/css/main.dbd06370.css.map",
-    "main.36f54e5d.js.map": "/formcarry/static/js/main.36f54e5d.js.map",
+    "main.fa2a6aed.css.map": "/formcarry/static/css/main.fa2a6aed.css.map",
+    "main.dc274562.js.map": "/formcarry/static/js/main.dc274562.js.map",
     "488.3c842770.chunk.js.map": "/formcarry/static/js/488.3c842770.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dbd06370.css",
-    "static/js/main.36f54e5d.js"
+    "static/css/main.fa2a6aed.css",
+    "static/js/main.dc274562.js"
   ]
 }
