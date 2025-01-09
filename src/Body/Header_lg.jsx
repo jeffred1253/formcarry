@@ -30,7 +30,6 @@ const Header_lg = () => {
                 }
                 setLastScroll(window.scrollY)
             }
-            console.log(lastScroll)
         })
     }, [window.scrollY])
 

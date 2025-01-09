@@ -16,11 +16,10 @@ function App() {
     }
   }
   
-  // Listener pour automatiquement changer le format du header
-  window.addEventListener('resize', () => {
-    resize()
-  })
+  // Adapte le format du header à chaque modification de la taille de l'écran
+  window.addEventListener('resize', resize)
 
+  // Adapte le format du header au premier rendu par rapport à la taille de l'écran
   useEffect(() => resize, [])
 
   return (

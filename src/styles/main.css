@@ -70,6 +70,7 @@
 
 .brands > div:last-child {
     display: flex;
+    overflow-x: hidden;
     justify-content: center;
     margin-bottom: 30px;
 }
